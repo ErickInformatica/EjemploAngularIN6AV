@@ -9,15 +9,20 @@ import { Usuario } from '../modelos/usuario.model';
 })
 export class UsuarioService {
   public ruta: String;
+  public headersVariable = new HttpHeaders().set('Content-Type', 'application/json');
   constructor(public _http: HttpClient) {
     this.ruta = GLOBAL.url;
   }
 
   registro(usuario: Usuario): Observable<any>{
     let params = JSON.stringify(usuario);
-    let headersVariable = new HttpHeaders().set('Content-Type', 'application/json');
 
-    return this._http.post(this.ruta + 'registrar', params, {headers: headersVariable})
+    return this._http.post(this.ruta + 'registrar', params, {headers: this.headersVariable})
     // `${this.ruta}registrar`
+  }
+
+  obtenerUsuarios(): Observable<any>{
+
+    return this._http.get(this.ruta + 'obtenerUsuarios', {headers: this.headersVariable})
   }
 }
