@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Usuario } from 'src/app/modelos/usuario.model';
 import { UsuarioService } from 'src/app/servicios/usuario.service';
 
 @Component({
@@ -9,7 +10,10 @@ import { UsuarioService } from 'src/app/servicios/usuario.service';
 })
 export class UsuariosComponent implements OnInit {
   public usuariosList;
-  constructor(private _usuarioService: UsuarioService) { }
+  public usuarioIDModel: Usuario;
+  constructor(private _usuarioService: UsuarioService) {
+    this.usuarioIDModel = new Usuario('','','','','','','');
+  }
 
   ngOnInit(): void {
     this.obtenerUsuarios();
@@ -24,6 +28,15 @@ export class UsuariosComponent implements OnInit {
       },
       error=>{
         console.log(<any>error);
+
+      }
+    )
+  }
+
+  obtenerUsuarioId(id){
+    this._usuarioService.obtenerUsuario(id).subscribe(
+      response=>{
+        console.log(response);
 
       }
     )

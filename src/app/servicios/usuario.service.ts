@@ -38,6 +38,22 @@ export class UsuarioService {
 
   }
 
+  editarUsuario(usuario: Usuario): Observable<any>{
+    let params = JSON.stringify(usuario);
+    let headersToken = this.headersVariable.set('Authorization', this.obtenerToken())
+    // this.headersVariable.set('Authorization', this.obtenerToken())
+
+    return this._http.put(this.ruta + 'editarUsuarioAdmin/' + usuario._id , params, { headers: headersToken })
+
+  }
+
+  obtenerUsuario(id:String): Observable<any>{
+
+    return this._http.get(this.ruta + 'obtenerUsuarioId/' + id, {headers: this.headersVariable})
+  }
+
+
+
   obtenerIdentidad(){
     var identidad2 = JSON.parse(localStorage.getItem('identidad'));
     if(identidad2 != 'undefined'){
