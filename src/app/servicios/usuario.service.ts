@@ -47,6 +47,12 @@ export class UsuarioService {
 
   }
 
+  eliminarUsuario(id:String): Observable<any>{
+    let headersToken = this.headersVariable.set('Authorization', this.obtenerToken());
+
+    return this._http.delete(this.ruta + 'eliminarUsuarioAdmin/' + id, { headers: headersToken });
+  }
+
   obtenerUsuario(id:String): Observable<any>{
 
     return this._http.get(this.ruta + 'obtenerUsuarioId/' + id, {headers: this.headersVariable})

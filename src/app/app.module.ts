@@ -9,6 +9,7 @@ import { NavbarComponent } from './componentes/navbar/navbar.component';
 import { UsuariosComponent } from './componentes/usuarios/usuarios.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { EncuestasComponent } from './componentes/encuestas/encuestas.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { FormsModule } from '@angular/forms';
     LoginComponent,
     RegistroComponent,
     NavbarComponent,
-    UsuariosComponent
+    UsuariosComponent,
+    EncuestasComponent
   ],
   imports: [
     BrowserModule,

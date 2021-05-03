@@ -36,8 +36,28 @@ export class UsuariosComponent implements OnInit {
   obtenerUsuarioId(id){
     this._usuarioService.obtenerUsuario(id).subscribe(
       response=>{
-        console.log(response);
+        this.usuarioIDModel = response.usuarioEncontrado;
+        console.log(response.usuarioEncontrado);
 
+      }
+    )
+  }
+
+  editarUsuario(){
+    this._usuarioService.editarUsuario(this.usuarioIDModel).subscribe(
+      response=>{
+        console.log(response);
+        this.obtenerUsuarios();
+
+      }
+    )
+  }
+
+  eliminarUsuarioAdmin(id){
+    this._usuarioService.eliminarUsuario(id).subscribe(
+      response=>{
+        console.log(response);
+        this.obtenerUsuarios();
       }
     )
   }
