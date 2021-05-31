@@ -1,0 +1,19 @@
+<select [(ngModel)]="chartInicial">
+  <ng-container *ngIf="estado === true">
+    <option *ngFor="let tipo of chartTypes" [value]="tipo.nombreTipo">{{ tipo.texto }}</option>
+  </ng-container>
+</select>
+
+<button (click)="cambioEstado()">Cambiar Estado</button>
+
+<div style="display: block;">
+  <canvas baseChart
+    [chartType]="chartInicial"
+    [data]="chartData"
+    [colors]="chartColors"
+    [labels]="chartLabels"
+    [options]="chartOptions"
+    [plugins]="chartPlugins"
+    [legend]="chartLegend">
+  </canvas>
+</div>

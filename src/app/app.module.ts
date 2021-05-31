@@ -10,6 +10,8 @@ import { UsuariosComponent } from './componentes/usuarios/usuarios.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { EncuestasComponent } from './componentes/encuestas/encuestas.component';
+import { GraficasComponent } from './componentes/graficas/graficas.component';
+import { ChartsModule } from '@rinminase/ng-charts';
 
 @NgModule({
   declarations: [
@@ -18,13 +20,15 @@ import { EncuestasComponent } from './componentes/encuestas/encuestas.component'
     RegistroComponent,
     NavbarComponent,
     UsuariosComponent,
-    EncuestasComponent
+    EncuestasComponent,
+    GraficasComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
