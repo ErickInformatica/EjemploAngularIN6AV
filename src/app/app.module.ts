@@ -12,6 +12,8 @@ import { FormsModule } from '@angular/forms';
 import { EncuestasComponent } from './componentes/encuestas/encuestas.component';
 import { GraficasComponent } from './componentes/graficas/graficas.component';
 import { ChartsModule } from '@rinminase/ng-charts';
+import { ComidasCiudadComponent } from './componentes/comidas-ciudad/comidas-ciudad.component';
+import { EditarPerfilComponent } from './componentes/editar-perfil/editar-perfil.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { ChartsModule } from '@rinminase/ng-charts';
     NavbarComponent,
     UsuariosComponent,
     EncuestasComponent,
-    GraficasComponent
+    GraficasComponent,
+    ComidasCiudadComponent,
+    EditarPerfilComponent
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GLOBAL } from 'src/app/servicios/global.service';
 import { UsuarioService } from 'src/app/servicios/usuario.service';
 
 @Component({
@@ -9,10 +10,12 @@ import { UsuarioService } from 'src/app/servicios/usuario.service';
 })
 export class NavbarComponent implements OnInit {
   public identidad;
+  public url;
   constructor(
     public _usuarioService: UsuarioService
   ) {
     this.identidad = this._usuarioService.obtenerIdentidad();
+    this.url = GLOBAL.url;
    }
 
   ngOnInit(): void {

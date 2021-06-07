@@ -19,4 +19,9 @@ export class PruebaService {
     return this._http.get(this.ruta + 'obtenerPruebas', {headers: this.headersVariable})
   }
 
+  obtenerComidas(id): Observable<any>{
+
+    return this._http.get(this.ruta + 'obtenerComidas/' + id, {headers: this.headersVariable})
+  }
+
 }

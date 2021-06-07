@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-4" *ngFor="let prueb of pruebasModel">
+      <div class="card mb-3">
+        <div class="card-header">
+          {{ prueb.ciudad }}
+        </div>
+        <div class="card-body">
+          <p class="card-text">Habitantes: {{ prueb.habitantes }}</p>
+          <div class="dropdown" *ngIf="prueb.comidaCasa.length > 0">
+            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+              Ver Comidas
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              <li *ngFor="let comidas of prueb.comidaCasa">
+                <a class="dropdown-item" (click)="obtenerIdComida(comidas._id)">
+                  {{ comidas.nombreComida | uppercase}} - {{ comidas.precioComida | currency: "GTQ":"symbol" }}
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

@@ -21,12 +21,16 @@
         <li class="nav-item">
           <a class="nav-link" routerLink='/graficas' routerLinkActive='active'>Graficas</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink='/pruebas' routerLinkActive='active'>Pruebas</a>
+        </li>
 
       </ul>
       <div class="d-flex" *ngIf="_usuarioService.obtenerIdentidad()">
-        <img *ngIf="_usuarioService.obtenerIdentidad().imagen" [src]="_usuarioService.obtenerIdentidad().imagen" class="user-image">
+        <img *ngIf="_usuarioService.obtenerIdentidad().imagen" [src]="this.url + 'obtenerImagen/' + _usuarioService.obtenerIdentidad().imagen"
+        class="user-image" >
         <img *ngIf="_usuarioService.obtenerIdentidad().imagen === null" src="/assets/programmer.png" class="user-image">
-        <a class="nav-link">{{ _usuarioService.obtenerIdentidad().username }}</a>
+        <a class="nav-link" routerLink='/editarPerfil' routerLinkActive='active'>{{ _usuarioService.obtenerIdentidad().username }}</a>
       </div>
     </div>
   </div>
