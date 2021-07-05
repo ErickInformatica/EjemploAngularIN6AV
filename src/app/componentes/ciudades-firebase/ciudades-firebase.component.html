@@ -1,0 +1,107 @@
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#agregarCiudadModal">
+  Agregar
+</button>
+
+<div class="row">
+  <div class="col-xs-12 col-sm-4" *ngFor="let ciud of getCiudades">
+    <div class="card mb-3">
+      <div class="card-header">
+        {{ ciud.data.nombreCiudad }}
+      </div>
+      <div class="card-body">
+        <p class="card-text">No. Habitantes: {{ ciud.data.habitantes }}</p>
+
+        <div class="btn-group" role="group" aria-label="Basic example">
+          <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editarCiudadModal"
+            (click)="obtenerCiudadPorId(ciud.id)">Editar</button>
+          <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#eliminarCiudadModal"
+            (click)="obtenerCiudadPorId(ciud.id)">Eliminar</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal Agregar -->
+<div class="modal fade" id="agregarCiudadModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Agregar Ciudad</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label for="inputNombre" class="form-label">Nombre Ciudad</label>
+            <input type="text" class="form-control" id="inputNombre" name="nombreCiudad" #nombreCiudad="ngModel"
+              [(ngModel)]="ciudadesModelo.nombreCiudad">
+          </div>
+          <div class="mb-3">
+            <label for="inputHabitantes" class="form-label">Habitantes</label>
+            <input type="text" class="form-control" id="inputHabitantes" name="habitantes" #habitantes="ngModel"
+              [(ngModel)]="ciudadesModelo.habitantes">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal"
+          (click)="agregarCiudades()">Agregar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Editar -->
+<div class="modal fade" id="editarCiudadModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Editar Ciudad</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label for="inputNombre" class="form-label">Nombre Ciudad</label>
+            <input type="text" class="form-control" id="inputNombre" name="nombreCiudad" #nombreCiudad="ngModel"
+              [(ngModel)]="ciudadId.nombreCiudad">
+          </div>
+          <div class="mb-3">
+            <label for="inputHabitantes" class="form-label">Habitantes</label>
+            <input type="text" class="form-control" id="inputHabitantes" name="habitantes" #habitantes="ngModel"
+              [(ngModel)]="ciudadId.habitantes">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal"
+          (click)="editarCiudad(ciudadId.id)">Editar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Eliminar -->
+<div class="modal fade" id="eliminarCiudadModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Eliminar Ciudad</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>¿Esta seguro de que desea eliminar la ciudad {{ ciudadId.nombreCiudad }}?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal"
+          (click)="eliminarCiudad(ciudadId.id)">Si, Eliminar</button>
+      </div>
+    </div>
+  </div>
+</div>

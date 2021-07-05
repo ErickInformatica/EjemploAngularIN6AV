@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CiudadesFirebaseComponent } from './componentes/ciudades-firebase/ciudades-firebase.component';
 import { ComidasCiudadComponent } from './componentes/comidas-ciudad/comidas-ciudad.component';
 import { EditarPerfilComponent } from './componentes/editar-perfil/editar-perfil.component';
 import { EncuestasComponent } from './componentes/encuestas/encuestas.component';
@@ -15,6 +16,7 @@ const routes: Routes = [
   { path: 'encuestas', component: EncuestasComponent },
   { path: 'graficas', component: GraficasComponent},
   { path: 'pruebas', component: ComidasCiudadComponent},
+  { path: 'ciudadesFirebase', component: CiudadesFirebaseComponent},
   {path: 'editarPerfil', component: EditarPerfilComponent},
   { path: '**', component: LoginComponent }
 ];

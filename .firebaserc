@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "in6av-2021": {
+      "hosting": {
+        "EjemploIN6AV": [
+          "in6av-2021"
+        ]
+      }
+    }
+  }
+}

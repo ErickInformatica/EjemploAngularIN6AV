@@ -15,6 +15,11 @@ import { ChartsModule } from '@rinminase/ng-charts';
 import { ComidasCiudadComponent } from './componentes/comidas-ciudad/comidas-ciudad.component';
 import { EditarPerfilComponent } from './componentes/editar-perfil/editar-perfil.component';
 
+import { AngularFireModule } from "@angular/fire";
+import { environment } from 'src/environments/environment.prod';
+import { CiudadesFirebaseComponent } from './componentes/ciudades-firebase/ciudades-firebase.component';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,14 +30,16 @@ import { EditarPerfilComponent } from './componentes/editar-perfil/editar-perfil
     EncuestasComponent,
     GraficasComponent,
     ComidasCiudadComponent,
-    EditarPerfilComponent
+    EditarPerfilComponent,
+    CiudadesFirebaseComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ChartsModule
+    ChartsModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig)
   ],
   providers: [],
   bootstrap: [AppComponent]
